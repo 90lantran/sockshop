@@ -12,7 +12,7 @@ spec:
       - name: keptn-notification
         image: agrimmer/alpine-curl-uuid-kubectl:latest
         command: ["/bin/sh","-c"]
-        args: ['while [[ $(kubectl get rollout {{ .Values.keptn.service }}-{{ .Values.keptn.stage }} -n {{ .Values.keptn.project }}-{{ .Values.keptn.stage }} -o "jsonpath={..status.conditions[?(@.type==\"Progressing\")].reason}") == "ReplicaSetUpdated" ]]; do echo "waiting for rollout" && sleep 1; done; UUID=$(uuidgen); now=$(TZ=UTC date "+%FT%T.00Z");']
+        args: ['while [[ $(kubectl get rollout {{ .Values.keptn.service }}-{{ .Values.keptn.stage }} -n {{ .Values.keptn.project }}-{{ .Values.keptn.stage }} -o "jsonpath={..status.conditions[?(@.type==\"Progressing\")].reason}") == "ReplicaSetUpdated" ]]; do echo "waiting for rollout" && sleep 1; done; UUID=$(uuidgen); now=$(TZ=UTC date "+%FT%T.00Z"); echo $UUID']
         env:
           - name: KEPTN_API_URL
             valueFrom:
