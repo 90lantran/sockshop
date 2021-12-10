@@ -17,12 +17,12 @@ spec:
           - name: KEPTN_API_URL
             valueFrom:
               secretKeyRef:
-                name: argo3
+                name: argo4
                 key: KEPTN_API_URL
           - name: KEPTN_API_TOKEN
             valueFrom:
               secretKeyRef:
-                name: argo3
+                name: argo4
                 key: KEPTN_API_TOKEN
       restartPolicy: Never
   backoffLimit: 2
